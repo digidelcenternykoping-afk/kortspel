@@ -108,23 +108,26 @@ body {
 
 .corner {
   position: absolute;
+  width: calc(var(--cw) * .2);
   display: flex;
   flex-direction: column;
   align-items: center;
-  line-height: .95;
+  line-height: 1;
   font-weight: 700;
   font-size: calc(var(--cw) * .17);
-  letter-spacing: -.04em;
 }
-.corner .s { font-size: calc(var(--cw) * .15); }
-.tl { top: 4%; left: 5%; }
-.br { bottom: 4%; right: 5%; transform: rotate(180deg); }
+.corner .r { display: block; white-space: nowrap; }
+.corner .r.ten { letter-spacing: -.1em; margin-left: -.1em; }
+.corner .s { font-size: calc(var(--cw) * .14); margin-top: .08em; }
+.tl { top: 4%; left: 1%; }
+.br { bottom: 4%; right: 1%; transform: rotate(180deg); }
 
-.pips { position: absolute; left: 24%; right: 24%; top: 13%; bottom: 13%; }
+/* Mittsymbolerna hålls borta från hörnen så att inget krockar */
+.pips { position: absolute; left: 33%; right: 33%; top: 11%; bottom: 11%; }
 .pip {
   position: absolute;
   transform: translate(-50%, -50%);
-  font-size: calc(var(--cw) * .21);
+  font-size: calc(var(--cw) * .19);
   line-height: 1;
 }
 .pip.dn { transform: translate(-50%, -50%) rotate(180deg); }
@@ -132,11 +135,11 @@ body {
 .ace {
   position: absolute; inset: 0;
   display: grid; place-items: center;
-  font-size: calc(var(--cw) * .52);
+  font-size: calc(var(--cw) * .5);
 }
 .court {
   position: absolute;
-  left: 21%; right: 21%; top: 15%; bottom: 15%;
+  left: 23%; right: 23%; top: 13%; bottom: 13%;
   border: 2px solid currentColor;
   border-radius: calc(var(--cw) * .05);
   display: flex; flex-direction: column;
@@ -145,20 +148,22 @@ body {
     repeating-linear-gradient(135deg, rgba(212,170,60,.18) 0 3px, transparent 3px 7px),
     #fff8e6;
 }
-.court .cl { font-size: calc(var(--cw) * .42); font-weight: 700; line-height: 1; }
-.court .cs { font-size: calc(var(--cw) * .24); line-height: 1; }
+.court .cl { font-size: calc(var(--cw) * .38); font-weight: 700; line-height: 1; }
+.court .cs { font-size: calc(var(--cw) * .22); line-height: 1; }
 .big { display: none; }
 
 /* Kompakt kortlayout för små skärmar (som i mobilapparna) */
 .compact .pips, .compact .ace, .compact .court, .compact .br { display: none; }
 .compact .tl {
+  width: auto;
   flex-direction: row;
   align-items: baseline;
   top: 3%; left: 6%; right: 6%;
   justify-content: space-between;
   font-size: calc(var(--cw) * .34);
 }
-.compact .tl .s { font-size: calc(var(--cw) * .28); }
+.compact .corner .r.ten { letter-spacing: -.04em; margin-left: 0; }
+.compact .tl .s { font-size: calc(var(--cw) * .28); margin-top: 0; }
 .compact .big {
   display: block;
   position: absolute;

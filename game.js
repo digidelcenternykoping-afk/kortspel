@@ -55,9 +55,10 @@
     else if (r > 10) center = `<div class="court"><span class="cl">${R}</span><span class="cs">${s}</span></div>`;
     else center = '<div class="pips">' + PIP_LAYOUT[r].map(([x, y]) =>
       `<span class="pip${y > 50 ? ' dn' : ''}" style="left:${x}%;top:${y}%">${s}</span>`).join('') + '</div>';
+    const idx = `<span class="r${r === 10 ? ' ten' : ''}">${R}</span><span class="s">${s}</span>`;
     el.innerHTML =
-      `<div class="face"><div class="corner tl"><span>${R}</span><span class="s">${s}</span></div>` +
-      `<div class="corner br"><span>${R}</span><span class="s">${s}</span></div>${center}` +
+      `<div class="face"><div class="corner tl">${idx}</div>` +
+      `<div class="corner br">${idx}</div>${center}` +
       `<div class="big">${s}</div></div><div class="back"></div>`;
     el.setAttribute('aria-label', `${R} ${['spader', 'hjärter', 'ruter', 'klöver'][suitOf(id)]}`);
     return el;
