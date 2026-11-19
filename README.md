@@ -11,4 +11,13 @@ Spela: https://digidelcenternykoping-afk.github.io/kortspel/
   när som helst stängas av och raderas i menyn.
 - Dra 1 eller dra 3 kort väljs i menyn.
 
-Publiceras med GitHub Pages från grenen `main`, mapp `/`.
+## Publicering
+
+Spelet är rena statiska filer utan byggsteg, så det kan ligga på både
+GitHub Pages och Cloudflare Pages samtidigt.
+
+- **GitHub Pages:** grenen `main`, mapp `/`.
+- **Cloudflare Pages:** koppla repot under *Workers & Pages → Create → Pages →
+  Connect to Git*. Framework preset: *None*, Build command: tomt,
+  Build output directory: `/`. Varje push till `main` publiceras automatiskt.
+  Filen `_headers` lägger till säkerhetshuvuden (används bara av Cloudflare).
